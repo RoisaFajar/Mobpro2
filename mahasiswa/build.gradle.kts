@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "org.d3if4501.mobpro2"
+    namespace = "org.d3if4501.mobpro2m"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "org.d3if4501.mobpro2"
-        minSdk = 24
+        applicationId = "org.d3if4501.mobpro2m"
+        minSdk = 23
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
