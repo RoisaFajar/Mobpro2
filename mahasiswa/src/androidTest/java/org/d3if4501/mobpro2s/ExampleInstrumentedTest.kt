@@ -1,4 +1,4 @@
-package org.d3if4501.mobpro2m
+package org.d3if4501.mobpro2s
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

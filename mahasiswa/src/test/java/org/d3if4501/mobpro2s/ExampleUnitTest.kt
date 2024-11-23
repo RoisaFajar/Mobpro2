@@ -1,4 +1,4 @@
-package org.d3if4501.mobpro2m
+package org.d3if4501.mobpro2s
 
 import org.junit.Test
 

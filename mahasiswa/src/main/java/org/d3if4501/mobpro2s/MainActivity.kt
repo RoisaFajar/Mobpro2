@@ -1,4 +1,4 @@
-package org.d3if4501.mobpro2m
+package org.d3if4501.mobpro2s
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import org.d3if4501.mobpro2m.ui.theme.Mobpro2Theme
+import org.d3if4501.mobpro2m.R
+import org.d3if4501.mobpro2s.ui.WelcomeScreen
+import org.d3if4501.mobpro2s.ui.theme.Mobpro2Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +22,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             Mobpro2Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    WelcomeScreen(
+                        appLogo = R.mipmap.ic_launcher,
+                        appName = R.string.app_name,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -30,18 +33,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun DosenAppPreview() {
     Mobpro2Theme {
-        Greeting("Android")
+        WelcomeScreen(
+            appLogo = R.mipmap.ic_launcher,
+            appName = R.string.app_name
+        )
     }
 }
