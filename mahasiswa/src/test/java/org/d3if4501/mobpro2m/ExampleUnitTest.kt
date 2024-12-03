@@ -1,4 +1,4 @@
-package org.d3if4501.shared
+package org.d3if4501.mobpro2m
 
 import org.junit.Test
 

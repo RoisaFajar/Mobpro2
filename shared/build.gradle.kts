@@ -7,8 +7,8 @@ plugins {
 }
 
 android {
-    namespace = "org.d3if4501.shared"
-    compileSdk = 34
+    namespace = "org.d3if4501.mobpro2s"
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 23

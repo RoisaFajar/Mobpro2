@@ -1,4 +1,4 @@
-package org.d3if4501.mobpro2s.ui.theme
+package org.d3if4501.mobpro2m.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
