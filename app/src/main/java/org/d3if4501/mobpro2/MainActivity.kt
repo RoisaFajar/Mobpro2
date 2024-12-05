@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import org.d3if4501.mobpro2.ui.screen.app.DosenApp
 import org.d3if4501.mobpro2.ui.theme.Mobpro2Theme
 import org.d3if4501.mobpro2.ui.theme.Mobpro2Theme
 import org.d3if4501.mobpro2s.ui.WelcomeScreen
@@ -20,15 +21,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Mobpro2Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    WelcomeScreen(
-                        appLogo = R.mipmap.ic_launcher,
-                        appName = R.string.app_name,
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+
+        DosenApp()
+
         }
     }
 }
