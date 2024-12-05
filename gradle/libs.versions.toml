@@ -11,6 +11,7 @@ composeBom = "2024.04.01"
 firebaseBom = "33.4.0"
 firebaseUiAuth = "7.2.0"
 coilCompose = "2.7.0"
+googleServices = "4.4.2"
 
 
 [libraries]
@@ -39,4 +40,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 

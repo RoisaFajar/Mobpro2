@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun DosenAppPreview() {
+fun MahsiswaAppPreview() {
     Mobpro2Theme {
         WelcomeScreen(
             appLogo = R.mipmap.ic_launcher,
