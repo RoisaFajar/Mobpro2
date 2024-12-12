@@ -37,7 +37,7 @@ fun KelasDialog(
 ) {
     var kelas by remember { mutableStateOf("") }
 
-    Dialog(onDismissRequest = { onDismissRequest ()}){
+    Dialog(onDismissRequest = { onDismissRequest() }){
         Card(
             modifier = Modifier.padding(16.dp),
             shape = RoundedCornerShape(16.dp)
@@ -49,7 +49,7 @@ fun KelasDialog(
                 )
                 OutlinedTextField(
                     value = kelas,
-                    onValueChange = {kelas = it},
+                    onValueChange = { kelas = it },
                     label = { Text(text = stringResource(id = R.string.kelas)) },
                     maxLines = 1,
                     keyboardOptions = KeyboardOptions(
@@ -63,13 +63,13 @@ fun KelasDialog(
                     horizontalArrangement = Arrangement.Center
                 ){
                     OutlinedButton(
-                        onClick = {onConfirmation(kelas) },
+                        onClick = {onDismissRequest() },
                         modifier = Modifier.padding(8.dp)
                     ) {
                         Text(text = stringResource(R.string.batal))
                     }
                     OutlinedButton(
-                        onClick = {onDismissRequest() },
+                        onClick = {onConfirmation(kelas) },
                         enabled = kelas.isNotEmpty(),
                         modifier = Modifier.padding(8.dp)
                     ) {
