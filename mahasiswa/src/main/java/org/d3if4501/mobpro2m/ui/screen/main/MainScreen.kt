@@ -74,7 +74,7 @@ fun MainScreen(
 
 
                 PilihKelas(viewModel.dataKelas) {
-                    Log.d("MainScreen", "Item terpilih : $it")
+                   viewModel.simpanData(it, user)
                 }
             }
         }
