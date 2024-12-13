@@ -11,9 +11,8 @@ data class Mahasiswa(
 
     constructor(user : FirebaseUser) : this(
         user.displayName ?: "",
-        user.email ?:"",
+        user.email ?: "",
         user.photoUrl.toString()
-
     )
 companion object{
     const val COLLECTION = "mahasiswa"

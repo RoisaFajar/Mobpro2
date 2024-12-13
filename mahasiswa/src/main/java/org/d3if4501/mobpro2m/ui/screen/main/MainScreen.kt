@@ -1,7 +1,5 @@
 package org.d3if4501.mobpro2m.ui.screen.main
 
-import android.util.Log
-import androidx.collection.intIntMapOf
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -33,14 +31,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.firebase.auth.FirebaseUser
 import org.d3if4501.mobpro2m.R
@@ -56,7 +51,13 @@ fun MainScreen(
 
 
     LaunchedEffect(true) {
-        viewModel.getDataKelas()
+        viewModel.getKelasMahasiswa(user.uid)
+    }
+
+    LaunchedEffect(viewModel.kelasId) {
+        if (viewModel.kelasId == null) {
+            viewModel.getDataKelas()
+        }
     }
 
     Scaffold(
@@ -69,94 +70,104 @@ fun MainScreen(
         ) {
             UserProfileCard(user)
 
-
-            if (viewModel.dataKelas.isNotEmpty()) {
-
-
-                PilihKelas(viewModel.dataKelas) {
-                   viewModel.simpanData(it, user)
+            if (viewModel.kelasId == null) {
+                if (viewModel.dataKelas.isNotEmpty()) {
+                    PilihKelas(viewModel.dataKelas) {
+                        viewModel.simpanData(it, user)
+                    }
+                }
+            }
+                viewModel.kelasId?.let {
+                    if (it.isNotEmpty()) {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            Text(
+                                text = stringResource(R.string.list_kosong),
+                                modifier = Modifier.align(Alignment.Center)
+                            )
+                        }
+                    }
                 }
             }
         }
     }
-}
 
-@Composable
-fun PilihKelas(
-    data: List<String>,
-    onConfirmation: (Int)->Unit
-) {
-  var selecteditem by remember { mutableIntStateOf(0) }
 
-    Column (
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ){
-        Text(
-            text = stringResource(R.string.pilih_kelas),
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-        DropDownKelas(data, selecteditem) {
-            selecteditem = it
-        }
-        Button(
-            onClick = {onConfirmation(selecteditem) },
-            contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp),
-            modifier = Modifier.padding(top = 16.dp)
-        ) {
-            Text(text = stringResource(R.string.simpan))
-        }
+    @Composable
+    fun PilihKelas(
+        data: List<String>,
+        onConfirmation: (Int) -> Unit
+    ) {
+        var selecteditem by remember { mutableIntStateOf(0) }
 
-    }
-}
-
-@Composable
-fun DropDownKelas(
-    data : List<String>,
-    selecteditem: Int,
-    onitemClick: (Int) -> Unit
-) {
-    var dropdownSize by remember { mutableStateOf(Size.Zero) }
-    var isExpanded by remember { mutableStateOf(false) }
-
-    Box {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-            .onGloballyPositioned { dropdownSize = it.size.toSize() }
-                .border(
-                    border = BorderStroke(1.dp, Color.LightGray),
-                    shape = RoundedCornerShape(8.dp)
-                )
-                .clickable { isExpanded = true }
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = data[selecteditem],
-                modifier = Modifier.padding(16.dp)
+                text = stringResource(R.string.pilih_kelas),
+                modifier = Modifier.padding(bottom = 8.dp)
             )
-            Icon(
-                imageVector = Icons.Filled.ArrowDropDown,
-                contentDescription = null,
-                modifier = Modifier.padding(end = 8.dp)
-            )
+            DropDownKelas(data, selecteditem) {
+                selecteditem = it
+            }
+            Button(
+                onClick = { onConfirmation(selecteditem) },
+                contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp),
+                modifier = Modifier.padding(top = 16.dp)
+            ) {
+                Text(text = stringResource(R.string.simpan))
+            }
+
         }
-        DropdownMenu(
-            expanded = isExpanded,
-            onDismissRequest = { isExpanded = false },
-            modifier = Modifier.width(
-                with(LocalDensity.current) { dropdownSize.width.toDp() }
-            )
-        ) {
-            data.forEachIndexed{ index, label ->
-            DropdownMenuItem(
-                text = { Text (text = label) },
-                onClick = {
-                    isExpanded = false
-                    onitemClick(index)
-                }
+    }
+
+    @Composable
+    fun DropDownKelas(
+        data: List<String>,
+        selectedItem: Int,
+        onitemClick: (Int) -> Unit
+    ) {
+        var dropdownSize by remember { mutableStateOf(Size.Zero) }
+        var isExpanded by remember { mutableStateOf(false) }
+
+        Box {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .onGloballyPositioned { dropdownSize = it.size.toSize() }
+                    .border(
+                        border = BorderStroke(1.dp, Color.LightGray),
+                        shape = RoundedCornerShape(8.dp)
+                    )
+                    .clickable { isExpanded = true }
+            ) {
+                Text(
+                    text = data[selectedItem],
+                    modifier = Modifier.padding(16.dp)
                 )
+                Icon(
+                    imageVector = Icons.Filled.ArrowDropDown,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+            }
+            DropdownMenu(
+                expanded = isExpanded,
+                onDismissRequest = { isExpanded = false },
+                modifier = Modifier.width(
+                    with(LocalDensity.current) { dropdownSize.width.toDp() }
+                )
+            ) {
+                data.forEachIndexed { index, label ->
+                    DropdownMenuItem(
+                        text = { Text(text = label) },
+                        onClick = {
+                            isExpanded = false
+                            onitemClick(index)
+                        }
+                    )
+                }
             }
         }
     }
-}
