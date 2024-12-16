@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.d3if4501.mobpro2.R
+import org.d3if4501.mobpro2.navigation.SetupNavGraph
 import org.d3if4501.mobpro2.ui.screen.main.MainScreen
 import org.d3if4501.mobpro2s.ui.WelcomeScreen
 
@@ -26,6 +27,6 @@ fun DosenApp() {
         }
     }
 
-    userFlow?.let { MainScreen(it) }
+    userFlow?.let { SetupNavGraph(it) }
 
 }
