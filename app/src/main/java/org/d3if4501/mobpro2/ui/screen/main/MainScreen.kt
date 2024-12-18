@@ -27,14 +27,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.google.firebase.auth.FirebaseUser
 import org.d3if4501.mobpro2.R
+import org.d3if4501.mobpro2.navigation.Screen
 import org.d3if4501.mobpro2s.model.Kelas
 import org.d3if4501.mobpro2s.ui.AppBarWithLogout
 import org.d3if4501.mobpro2s.ui.UserProfileCard
 
 @Composable
 fun MainScreen(
+    navController: NavHostController,
     user: FirebaseUser
 ) {
 
@@ -61,7 +64,11 @@ fun MainScreen(
             data = viewModel.data,
             modifier = Modifier.padding(innerPadding)
         ) {
-            Log.d("MainScreen", "ID kelas: ${viewModel.dataId[it]}")
+           val route = Screen.Detail.withData(
+               viewModel.dataId[it],
+               viewModel.data[it].nama
+           )
+            navController.navigate(route)
         }
 
 
