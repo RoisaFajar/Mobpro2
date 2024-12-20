@@ -8,13 +8,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -30,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -53,6 +58,10 @@ fun MainScreen(
 
     val configuration = LocalConfiguration.current
     val isTwoPane = configuration.smallestScreenWidthDp >= 600
+    val uiState = if (isTwoPane)
+        MainUiState((-44).dp, FabPosition.Center)
+    else
+        MainUiState(0.dp, FabPosition.End)
 
     var selectedId by remember { mutableStateOf<String?>(null) }
 
@@ -61,20 +70,22 @@ fun MainScreen(
     Scaffold (
         topBar = { AppBarWithLogout(R.string.app_name) },
         floatingActionButton = {
-            FloatingActionButton(onClick = { showDialog = true }) {
+            FloatingActionButton(onClick = { showDialog = true },
+                modifier = Modifier.offset(x = uiState.fabOffSet)) {
                 Icon(
                     imageVector = Icons.Filled.Add,
                     contentDescription = stringResource(R.string.tambah_kelas),
                     tint = MaterialTheme.colorScheme.primary
                 )
             }
-
-        }
+        },
+        floatingActionButtonPosition = uiState.fabPosition
     ) { innerPadding ->
         Row(modifier = Modifier.padding(innerPadding)) {
             MainScreenContent(
                 user = user,
                 data = viewModel.data,
+                selectedIndex = viewModel.dataId.indexOf(selectedId),
                 modifier = Modifier.weight(1f)
             ) {
                 if (isTwoPane) {
@@ -115,6 +126,7 @@ fun MainScreen(
 fun MainScreenContent(
     user: FirebaseUser,
     data : List<Kelas>,
+    selectedIndex: Int,
     modifier: Modifier = Modifier,
     onKelasClick: (Int) -> Unit
 ) {
@@ -132,7 +144,13 @@ fun MainScreenContent(
             )
         }
         itemsIndexed(data) { index, kelas ->
-            Card(modifier = Modifier.fillMaxWidth()
+            val background  = if (selectedIndex == index)
+                MaterialTheme.colorScheme.tertiaryContainer
+            else
+                MaterialTheme.colorScheme.surfaceVariant
+            Card(
+                colors = CardDefaults.cardColors(containerColor = background),
+                modifier = Modifier.fillMaxWidth()
                 .padding(start = 16.dp, top = 16.dp, end = 16.dp)
                 .clickable { onKelasClick(index) }
 
@@ -144,6 +162,9 @@ fun MainScreenContent(
             }
         }
     }
-
 }
 
+class MainUiState(
+    val fabOffSet: Dp,
+    val fabPosition: FabPosition
+)
