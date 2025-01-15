@@ -45,6 +45,7 @@ android {
 
 dependencies {
 
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
@@ -61,6 +62,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.ui.auth)
     implementation(libs.firebase.firestore)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
