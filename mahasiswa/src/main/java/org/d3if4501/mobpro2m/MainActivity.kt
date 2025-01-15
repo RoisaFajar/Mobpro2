@@ -1,4 +1,4 @@
-package org.d3if4501.mobpro2s
+package org.d3if4501.mobpro2m
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.d3if4501.mobpro2m.R
 import org.d3if4501.mobpro2s.ui.WelcomeScreen
-import org.d3if4501.mobpro2s.ui.theme.Mobpro2Theme
+import org.d3if4501.mobpro2m.ui.theme.Mobpro2Theme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
