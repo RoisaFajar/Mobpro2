@@ -1,10 +1,14 @@
 package org.d3if4501.mobpro2.ui.screen
 
 import android.Manifest
+import android.util.Log
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
@@ -22,6 +26,9 @@ fun MainScreen(
     val viewModel: MainViewModel = viewModel()
     val mapState = viewModel.mapState
 
+    val context = LocalContext.current
+    val userLocation by viewModel.getUserLocation(context).collectAsState(null)
+
     val locationPermissionState = rememberPermissionState(
         Manifest.permission.ACCESS_FINE_LOCATION
     )
@@ -32,6 +39,12 @@ fun MainScreen(
 
         if (!locationPermissionState.status.isGranted) {
             locationPermissionState.launchPermissionRequest()
+        }
+    }
+
+    LaunchedEffect(userLocation) {
+        userLocation?.let {
+            Log.d("MainScreen", "Location : ${it.latitude}, ${it.longitude}")
         }
     }
 
