@@ -1,0 +1,162 @@
+[33mcommit a55ac03b51b8eaceb332e42710a2eaac1fedfd28[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32m09-two-pane[m[33m)[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Dec 20 15:59:54 2024 +0700
+
+    3.5.Visual polish untuk tampilan tablet
+
+[33mcommit adad76733b3ebc0d3c29133951acc65b3c0df969[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 19 13:52:15 2024 +0700
+
+    3.4.Membuat two-pane layout pada tablet
+
+[33mcommit 90435f9237679eb2569f14610209e887fc3249f4[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Wed Dec 18 20:57:49 2024 +0700
+
+    3.3.Bernavigasi ke tampilan detail kelas
+
+[33mcommit dc1492133dcb87d4b0630ad42254f67755616eea[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Wed Dec 18 20:17:41 2024 +0700
+
+    3.2.Membuat kelas dapat diklik
+
+[33mcommit a1f10f4409a5c9d5d8354c5c47280986c6ab0a73[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Mon Dec 16 09:27:47 2024 +0700
+
+    3.1.Menambahkan komponen navigasi dosen
+
+[33mcommit e00ff0e38daf11347f0849dedf756e5bed1d459c[m[33m ([m[1;31morigin/08-cloud-database-2[m[33m, [m[1;32m08-cloud-database-2[m[33m)[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Dec 13 21:12:19 2024 +0700
+
+    3.4. Menentukan status kelas mahasiswa
+
+[33mcommit 7eb13e322b3febadcaac4a298a5941238a93f034[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Dec 13 19:42:11 2024 +0700
+
+    3.3. Menyimpan data dengan batch write
+
+[33mcommit c01dc71159a4ecab2a73d3b5470c6a920450a699[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Dec 13 19:27:36 2024 +0700
+
+    3.2.Mengambil data kelas satu kali
+
+[33mcommit 5b52c1646fd465a9cc393f93b44ddab88903424b[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Dec 13 19:10:45 2024 +0700
+
+    3.1.Membuat dropdown kelas mahasiswa
+
+[33mcommit 820c483bf555c49cf18a405f4fbfd757ad03633a[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 12 20:46:06 2024 +0700
+
+    3.4. Melakukan filter dan mengurutkan data
+
+[33mcommit ad07fc3db23154681bfe69a038f5fc358cb3e137[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 12 20:31:03 2024 +0700
+
+    3.3. Mengambil data kelas dari database
+
+[33mcommit 8944bab9186c4fa95d1cc091e32a11171ee88652[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 12 19:47:20 2024 +0700
+
+    3.2.Menyimpan data kelas ke database
+
+[33mcommit e3b2c9cf361f780d99ca073d682c71066aa9e5df[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Tue Dec 10 15:11:11 2024 +0700
+
+    3.1.Membuat dialog tambah kelas
+
+[33mcommit 4d2f7d0da1c869129e63c0c3dcd68d1b3ced1059[m[33m ([m[1;31morigin/05-using-libraries[m[33m, [m[1;32m05-using-libraries[m[33m)[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Dec 6 13:27:33 2024 +0700
+
+    3.4.Menyesuaikan Aplikasi Mahasiswa
+
+[33mcommit 0876b793fec94a4d90a2b97834e45bfa713cfa27[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 5 23:00:24 2024 +0700
+
+    3.3.Membuat Tampilan Main
+
+[33mcommit e93fbdf1cbed98ca08cf239c1dd96b664a14a465[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 5 22:50:41 2024 +0700
+
+    3.2.Update UI Berdasarkan Status Login
+
+[33mcommit 7436bedcbe88596cc036ab3fb950a42d2fbdaa91[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Thu Dec 5 20:56:12 2024 +0700
+
+    3.1.Melakukan Konfigurasi Firebase Project
+
+[33mcommit 2cb968cf15506425f819422caa64d626b13ef1fd[m[33m ([m[1;31morigin/04-libraries[m[33m, [m[1;32m04-libraries[m[33m)[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Tue Dec 3 16:37:19 2024 +0700
+
+    3.5.Membuat Komponen Profil User
+
+[33mcommit 260980952b24ddc296f118a5f7f7eec319c00f67[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Tue Dec 3 13:21:04 2024 +0700
+
+    3.4.Membuat Menu Logout
+
+[33mcommit a3ac3a6243a00c165786c98e4f03fb85528c57c9[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Tue Dec 3 11:18:33 2024 +0700
+
+    3.3.Mendeteksi Perubahan Status Login
+
+[33mcommit 21a6aeda3ee4394361670ccf6dec8b47518a898f[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Mon Dec 2 09:40:27 2024 +0700
+
+    3.2.Menambahkan Kode untuk Login Google
+
+[33mcommit 0597f5aa8ca3b8e226f09f5be70a5ee84fa82093[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Sat Nov 23 19:45:16 2024 +0700
+
+    3.1.Menambahkan Tampilan Login
+
+[33mcommit b894316dc160f5987a6651d679b28f2e6e5f6b0f[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Sat Nov 23 17:08:13 2024 +0700
+
+    3.3.Membuat welcome screen di shared,3.4.Menggunakan welcome screen di dosen,
+    3.5.Menggunakan welcome screen di mahasiswa
+
+[33mcommit 29b93b8d4078b6b36dc8d7a0b6bcbf2c31b72026[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Nov 22 19:37:22 2024 +0700
+
+    3.2.Membuat module shared
+
+[33mcommit f28bbefd101d7b5f8a6131995d3e34584de34543[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Nov 22 19:22:45 2024 +0700
+
+    3.1.Membuat module mahasiswa
+
+[33mcommit 2fe1706ba68bcb75b604437bbb9fcedccc7c3a8d[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Nov 22 19:11:06 2024 +0700
+
+    Pengumpulan modul 1
+
+[33mcommit 02100bf47ed2756f1653f2feb39ed08a665faf46[m
+Author: roisafajar <roisalfarizi9@gmail.com>
+Date:   Fri Nov 22 19:10:05 2024 +0700
+
+    Initial commit

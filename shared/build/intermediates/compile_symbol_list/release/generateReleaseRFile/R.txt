@@ -1,0 +1,4 @@
+int string lainnya 0x0
+int string login 0x0
+int string login_intro 0x0
+int string logout 0x0
