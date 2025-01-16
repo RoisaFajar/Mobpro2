@@ -54,6 +54,7 @@ dependencies {
 
     implementation(libs.ovh.plrapps.mapcompose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.accompanist.permissions)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
