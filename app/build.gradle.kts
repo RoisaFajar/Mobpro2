@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "org.d3if4501.mobpro2"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "org.d3if4501.mobpro2"
