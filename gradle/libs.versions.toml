@@ -14,6 +14,7 @@ coilCompose = "2.7.0"
 googleServices = "4.4.2"
 lifecycleVMCompose = "2.8.6"
 navCompose = "2.8.3"
+accompanist = "0.36.0"
 
 
 [libraries]
@@ -39,6 +40,8 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-ui-auth = {module = "com.firebaseui:firebase-ui-auth", version.ref = "firebaseUiAuth" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 
 
 

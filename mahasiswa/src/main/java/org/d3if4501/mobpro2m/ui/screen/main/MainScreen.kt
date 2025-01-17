@@ -1,5 +1,7 @@
 package org.d3if4501.mobpro2m.ui.screen.main
 
+import android.Manifest
+import android.os.Build
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -37,11 +39,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.PermissionState
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
 import com.google.firebase.auth.FirebaseUser
 import org.d3if4501.mobpro2m.R
 import org.d3if4501.mobpro2s.ui.AppBarWithLogout
 import org.d3if4501.mobpro2s.ui.UserProfileCard
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun MainScreen(
     user: FirebaseUser
@@ -49,14 +56,16 @@ fun MainScreen(
 
     val viewModel: MainViewModel = viewModel()
 
+    val notifyPermissionState: PermissionState? =
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) null
+        else rememberPermissionState(Manifest.permission.POST_NOTIFICATIONS)
 
     LaunchedEffect(true) {
         viewModel.getKelasMahasiswa(user.uid)
-    }
 
-    LaunchedEffect(viewModel.kelasId) {
-        if (viewModel.kelasId == null) {
-            viewModel.getDataKelas()
+        if (notifyPermissionState != null &&
+            !notifyPermissionState.status.isGranted) {
+            notifyPermissionState.launchPermissionRequest()
         }
     }
 

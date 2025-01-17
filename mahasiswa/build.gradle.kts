@@ -58,6 +58,7 @@ dependencies {
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.ui.auth)
+    implementation(libs.accompanist.permissions)
     implementation(libs.firebase.firestore)
 
     testImplementation(libs.junit)
