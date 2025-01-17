@@ -5,7 +5,17 @@ import android.app.NotificationManager
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
+import android.util.Log
+import com.google.firebase.messaging.FirebaseMessagingService
 import org.d3if4501.mobpro2m.R
+
+
+class FcmService : FirebaseMessagingService() {
+
+    override fun onNewToken(token: String) {
+        Log.d("FCM", "Token baru: $token")
+    }
+}
 
 fun createChannel(context: Context) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
