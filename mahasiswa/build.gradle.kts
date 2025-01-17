@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.accompanist.permissions)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.messaging)
+    implementation(libs.androidx.browser)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
