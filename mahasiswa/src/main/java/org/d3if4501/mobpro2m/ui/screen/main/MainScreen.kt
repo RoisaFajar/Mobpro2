@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -45,6 +46,7 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.firebase.auth.FirebaseUser
 import org.d3if4501.mobpro2m.R
+import org.d3if4501.mobpro2m.notify.createChannel
 import org.d3if4501.mobpro2s.ui.AppBarWithLogout
 import org.d3if4501.mobpro2s.ui.UserProfileCard
 
@@ -53,7 +55,7 @@ import org.d3if4501.mobpro2s.ui.UserProfileCard
 fun MainScreen(
     user: FirebaseUser
 ) {
-
+    val context = LocalContext.current
     val viewModel: MainViewModel = viewModel()
 
     val notifyPermissionState: PermissionState? =
@@ -67,6 +69,7 @@ fun MainScreen(
             !notifyPermissionState.status.isGranted) {
             notifyPermissionState.launchPermissionRequest()
         }
+        createChannel(context)
     }
 
     Scaffold(
